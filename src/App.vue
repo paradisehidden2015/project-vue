@@ -1,32 +1,30 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div class="mt-5">
+    <navbar />
+    <router-view class="p-4" />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navbar from "./components/Navbar.vue";
+export default {
+  name: "App",
 
-nav {
-  padding: 30px;
-}
+  components: {
+    Navbar,
+  },
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  data: () => ({
+    //
+  }),
+};
+</script>
+<style scoped>
+@font-face {
+  font-family: Yekan;
+  src: url(./assets/Yekan.ttf);
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+body div {
+  font-family: Yekan;
 }
 </style>
