@@ -4,6 +4,7 @@ import App from "./../App.vue";
 import Weather from "./../components/Weather.vue";
 import Calculator from "./../components/Calculator.vue";
 import Selection from "./../components/Selection.vue";
+import Coin from "../components/Coin.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/selection",
     name: "selection",
     component: Selection,
+  },
+  {
+    path: "/coin",
+    name: "coin",
+    component: Coin,
   },
 ];
 

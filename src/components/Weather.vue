@@ -1,5 +1,6 @@
 <template>
-  <div class="weather-box">
+<div class="main p-5">
+  <div class="weather-box pt-5">
     <div class="search-box">
       <b-input-group size="lg" class="mb-2">
         <b-input-group-prepend is-text @click="fetchWeather" class="iconSearch">
@@ -123,6 +124,7 @@
       </b-card>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -138,7 +140,6 @@ export default {
   },
   methods: {
     fetchWeather(e) {
-      console.log(e);
       if (e.key == "Enter" || e.type == "click") {
         fetch(
           `${this.api}/weather?q=${this.query}&appid=${this.api_key}&units=metric`
@@ -184,6 +185,10 @@ export default {
 };
 </script>
 <style scoped>
+.main {
+  background-color: #a3a3a3;
+  height: 100vh;
+}
 .iconSearch:hover .icon {
   color: cornflowerblue;
   transition: 1s;

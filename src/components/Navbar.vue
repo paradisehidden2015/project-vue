@@ -16,6 +16,11 @@
           >Selection</router-link
         ></b-nav-item
       >
+      <b-nav-item
+        ><router-link class="link" :to="{ name: 'coin' }"
+          >Coin</router-link
+        ></b-nav-item
+      >
     </b-navbar-nav>
   </b-navbar>
 </template>
@@ -36,5 +41,10 @@ export default {
   color: gray;
   text-decoration: none;
   font-size: 1.3rem;
+  padding: 0 5px 0 5px;
+  transition: 0.5s;
+}
+.link:hover {
+  color: aqua;
 }
 </style>

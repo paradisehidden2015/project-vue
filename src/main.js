@@ -1,6 +1,5 @@
 import Vue from "vue";
 import App from "./App.vue";
-import Weather from "./components/Weather.vue";
 import router from "./routers/router";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";

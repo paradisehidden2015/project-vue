@@ -1,79 +1,85 @@
 <template>
-  <b-container
-    class="calculator d-flex justify-content-center align-items-center"
-  >
-    <b-row class="d-flex justify-content-center align-items-center">
-      <b-col sm="8" md="6" lg="5">
-        <div class="calculator-box position-relative">
-          <div
-            class="display p-2 d-flex justify-align-content-start align-items-center position-relative"
-          >
-            <span>|</span>{{ display }}
+  <div class="main">
+    <b-container
+      class="calculator d-flex justify-content-center align-items-center"
+    >
+      <b-row class="d-flex justify-content-center align-items-center">
+        <b-col sm="8" md="6" lg="5">
+          <div class="calculator-box position-relative">
+            <div
+              class="display p-2 d-flex justify-align-content-start align-items-center position-relative"
+            >
+              <span>|</span>{{ display }}
+            </div>
+            <div
+              class="oprator2 p-2 position-relative d-flex justify-align-content-start align-items-center"
+            >
+              {{ display == display2 ? "" : collection }}
+            </div>
+            <div class="mt-2">
+              <b-button variant="warning" class="btn" @click="append('÷')"
+                >÷</b-button
+              >
+              <b-button variant="warning" class="btn" @click="append('%')"
+                >%</b-button
+              >
+              <b-button variant="warning" class="btn clear" @click="append('c')"
+                >C</b-button
+              >
+              <b-button variant="warning" class="btn" @click="append('×')"
+                >×</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('9')"
+                >9</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('8')"
+                >8</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('7')"
+                >7</b-button
+              >
+              <b-button variant="warning" class="btn" @click="append('-')"
+                >-</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('6')"
+                >6</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('5')"
+                >5</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('4')"
+                >4</b-button
+              >
+              <b-button variant="warning" class="btn" @click="append('+')"
+                >+</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('3')"
+                >3</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('2')"
+                >2</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('1')"
+                >1</b-button
+              >
+              <b-button variant="warning" class="btn" @click="equal"
+                >=</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="dot"
+                >.</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('0')"
+                >0</b-button
+              >
+              <b-button variant="secondary" class="btn" @click="append('00')"
+                >00</b-button
+              >
+            </div>
           </div>
-          <div
-            class="oprator2 p-2 position-relative d-flex justify-align-content-start align-items-center"
-          >
-            {{ display == display2 ? "" : collection }}
-          </div>
-          <div class="mt-2">
-            <b-button variant="warning" class="btn" @click="append('÷')"
-              >÷</b-button
-            >
-            <b-button variant="warning" class="btn" @click="append('%')"
-              >%</b-button
-            >
-            <b-button variant="warning" class="btn clear" @click="append('c')"
-              >C</b-button
-            >
-            <b-button variant="warning" class="btn" @click="append('×')"
-              >×</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('9')"
-              >9</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('8')"
-              >8</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('7')"
-              >7</b-button
-            >
-            <b-button variant="warning" class="btn" @click="append('-')"
-              >-</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('6')"
-              >6</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('5')"
-              >5</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('4')"
-              >4</b-button
-            >
-            <b-button variant="warning" class="btn" @click="append('+')"
-              >+</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('3')"
-              >3</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('2')"
-              >2</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('1')"
-              >1</b-button
-            >
-            <b-button variant="warning" class="btn" @click="equal">=</b-button>
-            <b-button variant="secondary" class="btn" @click="dot">.</b-button>
-            <b-button variant="secondary" class="btn" @click="append('0')"
-              >0</b-button
-            >
-            <b-button variant="secondary" class="btn" @click="append('00')"
-              >00</b-button
-            >
-          </div>
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -169,6 +175,10 @@ export default {
 };
 </script>
 <style scoped>
+.main {
+  background-color: #a3a3a3;
+  height: 100vh;
+}
 .calculator {
   height: 90vh;
 }
