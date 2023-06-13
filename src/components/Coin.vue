@@ -1,19 +1,18 @@
 <template>
-  <div>
-    <div class="blockchain pt-4" v-if="status == true">
-      <!-- <b-container>
+  <div class="blockchain">
+    <b-container>
       <b-row class="d-flex justify-content-center m-2">
         <b-col cols="5">
           <b-form-input
             placeholder="Enter your coin name..."
-            @keydown="inputChange"
+            @keyup="inputChange"
           ></b-form-input>
         </b-col>
         <b-col cols="3">
           <b-form-select
             class="selected w-100 h-100 rounded-1"
             :value="null"
-            @change="changeSort"
+            @change="selectChange"
           >
             <b-form-select-option value="null">Market Cap</b-form-select-option>
             <b-form-select-option value="highest">Highest</b-form-select-option>
@@ -23,46 +22,49 @@
           </b-form-select>
         </b-col>
       </b-row>
-    </b-container> -->
+    </b-container>
 
-      <b-container fluid>
-        <b-row class="mt-5 row-coin">
-          <b-col cols="3" class="mb-2 title"> Image </b-col>
-          <b-col cols="3" class="title"> Symbol </b-col>
-          <b-col class="title"> Name </b-col>
-          <b-col class="title"> Current Price </b-col>
-          <b-col class="title"> Market Cap </b-col>
-        </b-row>
-        <b-row
-          v-for="coin in allCoin"
-          :key="coin.id"
-          class="mt-2 row-coin d-flex align-items-center"
-        >
-          <b-col cols="3" class="mb-2 text">
-            <img :src="coin.image" alt="" class="rounded-circle w-25" />
-            <!-- <img src="https://loremflickr.com/120/120" class="rounded-pill" /> -->
-          </b-col>
-          <b-col cols="3" class="text">
-            <p>{{ coin.symbol }}</p>
-            <!-- btc -->
-          </b-col>
-          <b-col class="text">
-            <p>{{ coin.name }}</p>
-            <!-- Bitcoin -->
-          </b-col>
-          <b-col class="text">
-            <p>{{ coin.current_price }}</p>
-            $
-            <!-- 165465 $ -->
-          </b-col>
-          <b-col class="text">
-            <p>{{ coin.market_cap }}</p>
-            <!-- 45346348343 -->
-          </b-col>
-        </b-row>
-      </b-container>
-    </div>
-    <div class="empty" v-if="status == false">.</div>
+    <b-container fluid>
+      <b-row class="mt-5 row-coin">
+        <b-col class="mb-2 title"> Icon </b-col>
+        <b-col class="title"> Symbol </b-col>
+        <b-col class="title"> Name </b-col>
+        <b-col class="title"> Current Price </b-col>
+        <b-col class="title"> Market Cap </b-col>
+        <b-col class="title"> Web Site </b-col>
+      </b-row>
+      <b-row
+        v-for="coin in allCoin"
+        :key="coin.id"
+        class="hoverCoin mt-2 row-coin d-flex align-items-center"
+      >
+        <b-col class="mb-2 text">
+          <img :src="coin.icon" alt="" class="rounded-circle w-25" />
+          <!-- <img src="https://loremflickr.com/120/120" class="rounded-pill" /> -->
+        </b-col>
+        <b-col class="text">
+          <p>{{ coin.symbol }}</p>
+          <!-- btc -->
+        </b-col>
+        <b-col class="text">
+          <p>{{ coin.name }}</p>
+          <!-- Bitcoin -->
+        </b-col>
+        <b-col class="text">
+          <p>{{ coin.price.toFixed(3) }} $</p>
+
+          <!-- 165465 $ -->
+        </b-col>
+        <b-col class="text">
+          <p>{{ coin.marketCap }}</p>
+          <!-- 45346348343 -->
+        </b-col>
+        <b-col class="text">
+          <a :href="coin.websiteUrl" target="_blank">{{ coin.websiteUrl }}</a>
+          <!-- 45346348343 -->
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -76,36 +78,49 @@ export default {
   data() {
     return {
       allCoin: {},
-      status: null,
-      // filterCoin: {},
-      // sortItem: "",
     };
   },
   methods: {
     callCoins() {
-      axios(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
+      axios("https://api.coinstats.app/public/v1/coins?skip=0")
         .then((res) => {
-          console.log(res);
-          this.allCoin = res.data;
-          this.status = true;
+          this.allCoin = res.data.coins;
         })
         .catch((error) => {
           console.error("error =>", error.message);
-          this.status = false;
         });
     },
-    // inputChange(e) {
-    //   console.log(e.target._value);
-    //   this.filterCoin.symbol = [
-    //     ...this.allCoin.symbol.includes(e.target.value),
-    //   ];
-    //   console.log(this.filterCoin);
-    // },
-    // changeSort(e) {
-    //   this.sortItem = e;
-    // },
+    inputChange(e) {
+      const event = e.target._value;
+      if (event) {
+        this.allCoin = this.allCoin.filter(
+          (coin) =>
+            coin.symbol.toLowerCase().includes(event.trim().toLowerCase()) ||
+            coin.name.toLowerCase().includes(event.trim().toLowerCase())
+        );
+        if (e.key == "Backspace") {
+          this.allCoin = this.callCoins();
+        }
+      }
+    },
+    selectChange(e) {
+      this.allCoin = this.allCoin.sort((x, y) => {
+        switch (e) {
+          case "null":
+            return y.marketCap - x.marketCap;
+          case "highest":
+            return y.price - x.price;
+          case "lowest":
+            return x.price - y.price;
+          case "a-z":
+            return x.name.localeCompare(y.name);
+          case "z-a":
+            return y.name.localeCompare(x.name);
+          default:
+            return y.marketCap - x.marketCap;
+        }
+      });
+    },
   },
   mounted() {
     this.callCoins();
@@ -113,13 +128,10 @@ export default {
 };
 </script>
 <style scoped>
-.empty {
-  height: 100vh;
-  background-color: #a3a3a3;
-}
 .blockchain {
   background-color: #434343;
   color: aliceblue;
+  padding-top: 80px;
 }
 .selected {
   border: 1px solid #ccc;
@@ -136,5 +148,20 @@ export default {
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
+}
+.hoverCoin {
+  transition: 0.5s;
+}
+.hoverCoin:hover {
+  background-color: #343434;
+  color: aqua;
+}
+a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.hoverCoin:hover a {
+  color: aqua;
 }
 </style>
