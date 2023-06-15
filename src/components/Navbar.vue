@@ -21,6 +21,11 @@
           >Coin</router-link
         ></b-nav-item
       >
+      <b-nav-item
+        ><router-link class="link" :to="{ name: 'reaction' }"
+          >Reaction</router-link
+        ></b-nav-item
+      >
     </b-navbar-nav>
   </b-navbar>
 </template>

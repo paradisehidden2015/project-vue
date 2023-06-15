@@ -5,6 +5,7 @@ import Weather from "./../components/Weather.vue";
 import Calculator from "./../components/Calculator.vue";
 import Selection from "./../components/Selection.vue";
 import Coin from "../components/Coin.vue";
+import Reaction from "../components/Reaction.vue";
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,11 @@ const routes = [
     path: "/coin",
     name: "coin",
     component: Coin,
+  },
+  {
+    path: "/reaction",
+    name: "reaction",
+    component: Reaction,
   },
 ];
 
