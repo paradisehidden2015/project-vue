@@ -4,8 +4,9 @@ import App from "./../App.vue";
 import Weather from "./../components/Weather.vue";
 import Calculator from "./../components/Calculator.vue";
 import Selection from "./../components/Selection.vue";
-import Coin from "../components/Coin.vue";
-import Reaction from "../components/Reaction.vue";
+import Coin from "./../components/Coin.vue";
+import Reaction from "./../components/Reaction.vue";
+import FormSubmit from "./../components/FormSubmit.vue";
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,11 @@ const routes = [
     path: "/reaction",
     name: "reaction",
     component: Reaction,
+  },
+  {
+    path: "/formSubmit",
+    name: "formSubmit",
+    component: FormSubmit,
   },
 ];
 

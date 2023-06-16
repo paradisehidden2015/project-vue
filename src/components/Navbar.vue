@@ -26,6 +26,11 @@
           >Reaction</router-link
         ></b-nav-item
       >
+      <b-nav-item
+        ><router-link class="link" :to="{ name: 'formSubmit' }"
+          >FormSubmit</router-link
+        ></b-nav-item
+      >
     </b-navbar-nav>
   </b-navbar>
 </template>
