@@ -2,32 +2,32 @@
   <b-navbar type="dark" variant="dark" class="fixed-top">
     <b-navbar-nav>
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'weather' }"
+        ><router-link class="link" :to="{ name: 'Weather' }"
           >Weather</router-link
         ></b-nav-item
       >
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'calculator' }"
+        ><router-link class="link" :to="{ name: 'Calculator' }"
           >Calculator</router-link
         ></b-nav-item
       >
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'selection' }"
+        ><router-link class="link" :to="{ name: 'Selection' }"
           >Selection</router-link
         ></b-nav-item
       >
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'coin' }"
+        ><router-link class="link" :to="{ name: 'Coin' }"
           >Coin</router-link
         ></b-nav-item
       >
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'reaction' }"
+        ><router-link class="link" :to="{ name: 'Reaction' }"
           >Reaction</router-link
         ></b-nav-item
       >
       <b-nav-item
-        ><router-link class="link" :to="{ name: 'formSubmit' }"
+        ><router-link class="link" :to="{ name: 'FormSubmit' }"
           >FormSubmit</router-link
         ></b-nav-item
       >

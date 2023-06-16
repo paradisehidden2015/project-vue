@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./../App.vue";
-import Weather from "./../components/Weather.vue";
-import Calculator from "./../components/Calculator.vue";
-import Selection from "./../components/Selection.vue";
-import Coin from "./../components/Coin.vue";
-import Reaction from "./../components/Reaction.vue";
-import FormSubmit from "./../components/FormSubmit.vue";
+import Weather from "../views/Weather.vue";
+import Calculator from "../views/Calculator.vue";
+import Selection from "../views/Selection.vue";
+import Coin from "../views/Coin.vue";
+import Reaction from "../views/Reaction/Reaction.vue";
+import FormSubmit from "../views/FormSubmit.vue";
 
 Vue.use(VueRouter);
 
@@ -14,32 +14,32 @@ const routes = [
   // { path: "/", name: "home", component: App, },
   {
     path: "/",
-    name: "weather",
+    name: "Weather",
     component: Weather,
   },
   {
     path: "/calculator",
-    name: "calculator",
+    name: "Calculator",
     component: Calculator,
   },
   {
     path: "/selection",
-    name: "selection",
+    name: "Selection",
     component: Selection,
   },
   {
     path: "/coin",
-    name: "coin",
+    name: "Coin",
     component: Coin,
   },
   {
     path: "/reaction",
-    name: "reaction",
+    name: "Reaction",
     component: Reaction,
   },
   {
     path: "/formSubmit",
-    name: "formSubmit",
+    name: "FormSubmit",
     component: FormSubmit,
   },
 ];
