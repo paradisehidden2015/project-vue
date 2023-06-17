@@ -25,6 +25,7 @@ export default {
   src: url(./assets/Yekan.ttf);
 }
 body div {
-  font-family: Yekan;
+  /* font-family: Yekan; */
+   font-family: "Arvo", serif;
 }
 </style>

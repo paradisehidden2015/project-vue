@@ -1,12 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import App from "./../App.vue";
-import Weather from "../views/Weather.vue";
-import Calculator from "../views/Calculator.vue";
-import Selection from "../views/Selection.vue";
-import Coin from "../views/Coin.vue";
-import Reaction from "../views/Reaction/Reaction.vue";
-import FormSubmit from "../views/FormSubmit.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -15,32 +9,42 @@ const routes = [
   {
     path: "/",
     name: "Weather",
-    component: Weather,
+    component: () =>
+      import(/*webpackChunkName:"Weather"*/ "../views/Weather.vue"),
   },
   {
     path: "/calculator",
     name: "Calculator",
-    component: Calculator,
+    component: () =>
+      import(/*webpackChunkName:"Calculator"*/ "../views/Calculator.vue"),
   },
   {
     path: "/selection",
     name: "Selection",
-    component: Selection,
+    component: () =>
+      import(/*webpackChunkName:"Selection"*/ "../views/Selection.vue"),
   },
   {
     path: "/coin",
     name: "Coin",
-    component: Coin,
+    component: () => import(/*webpackChunkName:"Coin"*/ "../views/Coin.vue"),
   },
   {
     path: "/reaction",
     name: "Reaction",
-    component: Reaction,
+    component: () =>
+      import(/*webpackChunkName:"Reaction"*/ "../views/Reaction/Reaction.vue"),
   },
   {
     path: "/formSubmit",
     name: "FormSubmit",
-    component: FormSubmit,
+    component: () =>
+      import(/*webpackChunkName:"FormSubmit"*/ "../views/FormSubmit.vue"),
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 
