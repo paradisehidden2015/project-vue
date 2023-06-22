@@ -185,10 +185,6 @@ export default {
 };
 </script>
 <style scoped>
-.main {
-  background-color: #a3a3a3;
-  height: 100vh;
-}
 .iconSearch:hover .icon {
   color: cornflowerblue;
   transition: 1s;

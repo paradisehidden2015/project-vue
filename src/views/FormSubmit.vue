@@ -109,13 +109,6 @@ export default {
 </script>
 
 <style scoped>
-.main {
-  width: 100vw;
-  height: 100vh;
-  background-color: #434343;
-  padding-top: 80px;
-  color: aliceblue;
-}
 .form {
   height: 85vh;
   background-color: #2f2f2f;
@@ -148,6 +141,9 @@ option {
 }
 .group {
   height: 15%;
+}
+.group label {
+  color: white;
 }
 .pill {
   position: relative;
@@ -190,6 +186,7 @@ option {
 }
 .terms {
   height: auto;
+  color: white;
 }
 .button {
   width: 100%;

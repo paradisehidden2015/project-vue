@@ -1,5 +1,5 @@
 <template>
-  <div class="blockchain">
+  <div class="main">
     <b-container>
       <b-row class="d-flex justify-content-center m-2">
         <b-col cols="5">
@@ -128,11 +128,6 @@ export default {
 };
 </script>
 <style scoped>
-.blockchain {
-  background-color: #434343;
-  color: aliceblue;
-  padding-top: 80px;
-}
 .selected {
   border: 1px solid #ccc;
 }

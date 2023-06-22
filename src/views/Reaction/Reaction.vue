@@ -55,12 +55,7 @@ export default {
 </script>
 <style scoped>
 .main {
-  width: 100vw;
-  height: 100vh;
-  background-color: #434343;
-  padding-top: 80px;
   font-size: 4rem;
-  color: aliceblue;
 }
 .btn {
   width: 10vw;

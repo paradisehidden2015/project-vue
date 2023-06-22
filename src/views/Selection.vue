@@ -51,10 +51,6 @@ export default {
 };
 </script>
 <style scoped>
-.main {
-  background-color: #a3a3a3;
-  height: 100vh;
-}
 .selected {
   width: 30vw;
   border: 1px solid #ccc;

@@ -1,13 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import App from "../App.vue";
 import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // { path: "/", name: "home", component: App, },
+  { path: "/", name: "home", component: App },
   {
-    path: "/",
+    path: "/weather",
     name: "Weather",
     component: () =>
       import(/*webpackChunkName:"Weather"*/ "../views/Weather.vue"),
@@ -40,6 +41,11 @@ const routes = [
     name: "FormSubmit",
     component: () =>
       import(/*webpackChunkName:"FormSubmit"*/ "../views/FormSubmit.vue"),
+  },
+  {
+    path: "/todo",
+    name: "Todo",
+    component: () => import(/*webpackChunkName:"Todo"*/ "../views/Todo.vue"),
   },
   {
     path: "/:catchAll(.*)",

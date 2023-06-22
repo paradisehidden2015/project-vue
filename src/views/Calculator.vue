@@ -175,22 +175,18 @@ export default {
 };
 </script>
 <style scoped>
-.main {
-  background-color: #a3a3a3;
-  height: 100vh;
-}
 .calculator {
   height: 90vh;
 }
 .calculator-box {
   /* width: 20vw; */
   height: 450px;
-  border: 1px solid #ccc;
+  border: 1px solid #828282;
   direction: rtl;
   border-radius: 10px;
   overflow: hidden;
   font-size: 1.5rem;
-  box-shadow: 1px 1px 20px 10px #ccc;
+  box-shadow: 1px 1px 20px 10px #5b5b5b;
 }
 .display {
   height: 13%;
