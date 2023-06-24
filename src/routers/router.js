@@ -45,7 +45,23 @@ const routes = [
   {
     path: "/todo",
     name: "Todo",
-    component: () => import(/*webpackChunkName:"Todo"*/ "../views/Todo.vue"),
+    component: () =>
+      import(/*webpackChunkName:"Todo"*/ "../views/Todo/Todo.vue"),
+  },
+  {
+    path: "/todo/add",
+    name: "AddProject",
+    component: () =>
+      import(/*webpackChunkName:"AddProject"*/ "../views/Todo/AddProject.vue"),
+  },
+  {
+    path: "/todo/:id",
+    name: "EditProject",
+    component: () =>
+      import(
+        /*webpackChunkName:"EditProject"*/ "../views/Todo/EditProject.vue"
+      ),
+    props: true,
   },
   {
     path: "/:catchAll(.*)",

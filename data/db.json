@@ -1,7 +1,22 @@
 {
-  "jobs": [
-    { "id": 1, "title": "OpenCode UX Designer", "details": "lorem" },
-    { "id": 2, "title": "OpenCode Web Designer", "details": "lorem" },
-    { "id": 3, "title": "OpenCode Vue Designer", "details": "lorem" }
+  "projects": [
+    {
+      "id": 1,
+      "title": "OpenCode UX Designer",
+      "details": "lorem OpenCode UX Designer",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "OpenCode Web Designer",
+      "details": "lorem OpenCode Web Designer",
+      "complete": true
+    },
+    {
+      "id": 3,
+      "title": "Open Code Vue Designer",
+      "details": "lorem OpenCode Vue Designer123",
+      "complete": false
+    }
   ]
 }
